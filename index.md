@@ -1,13 +1,24 @@
 # THREAT Pro — Model, Assumptions, Validation
 
-A single reference document covering the physics, calibration, validation
-results, and confidence rating of the THREAT Pro simulator.  Designed for
-HVM and blast specialists who want a one-stop overview before a demo or
-review session.
+A public reference document covering the physics, calibration approach,
+validation results, and confidence rating of the THREAT Pro simulator.
 
-> **Live application:** https://threat.ikirugai.com/ (Cloudflare Access gated)
-> **Methodology (this document):** https://ikirugai.github.io/threat-docs/
-> **Source repo:** https://github.com/ikirugai/threat (private)
+Designed for HVM specialists, blast specialists, structural engineers,
+and security consultants who want to understand what's inside the
+simulator before relying on its outputs.
+
+THREAT Pro is a proprietary IP product.  This page documents *what* the
+simulator does and *why* its outputs are credible — enough detail to
+defensibly assess it for a given use case.  The implementation itself
+is closed source.
+
+> **Application:** [threat.ikirugai.com](https://threat.ikirugai.com/) (access by invitation)
+> **This document:** [ikirugai.github.io/threat-docs](https://ikirugai.github.io/threat-docs/)
+> **Questions, interrogation, demo requests:** see [§11](#11-questions-and-interrogation).
+
+We welcome technical scrutiny of every assumption and calibration in
+this document.  Specialist review sessions are available on request
+([§11](#11-questions-and-interrogation)).
 
 ---
 
@@ -242,14 +253,16 @@ retests of the same product.
 > the only product where the truck visibly drags past the barrier
 > face in the simulation.
 
-### How to reproduce
+### Repeatability
 
-```bash
-git clone https://github.com/ikirugai/threat   # private
-cd threat && npm install
-npm run test                                    # runs all 66 tests
-npm run test -- real-product-validation         # the 27 catalog cases
-```
+The validation suite is integrated into the continuous-integration
+pipeline.  Every commit that touches the physics engine triggers a
+re-run of all 27 product cases plus the energy-balance invariant and
+the end-to-end workflow integration test.  A commit cannot land on
+the `main` branch unless every test passes.
+
+We are happy to walk through any specific product's simulated
+trajectory live in a review session ([§11](#11-questions-and-interrogation)).
 
 ---
 
@@ -358,15 +371,18 @@ screening role; all should be stated openly.
 
 ## 9. Test coverage
 
-| Suite | Tests | What it pins |
+Every code change is automatically tested before it can land on the
+production branch.  The suite covers:
+
+| Area | Cases | What it pins |
 |---|---|---|
-| Real-product validation | 27 | Every catalog product vs published rating |
-| End-to-end workflow | 1 | Full user journey: target / building / vehicle / ballistic / layered mitigations / building damage |
-| PAS 68 validation | 16 | Foundation-pull-out, lateral spread, hysteresis, sensitivity sweeps |
-| Transition / off-course / energy | 14 | Custom transition idx, no spring-back, no propulsion, energy balance |
-| Auto-placement | 4 | Rotation formula, multi-fence engagement, lateral spread |
-| Compliance | 4 | BREACHED / expended / over-rated / pass outcomes |
-| **TOTAL** | **66** | All passing on every commit |
+| Real-product validation | 27 | Every catalog product vs its published manufacturer rating |
+| End-to-end workflow | 1 | Full user journey: target / building / vehicle / ballistic point / layered mitigations / building damage |
+| PAS 68 sensitivity | 16 | Foundation pull-out failure mode, lateral spread, hysteresis, parameter sensitivity sweeps |
+| Transition + off-course + energy | 14 | User-controlled ballistic point, no spring-back, no propulsion artefacts, energy-balance invariant |
+| Auto-placement | 4 | Rotation maths, multi-fence engagement, lateral coverage |
+| Compliance outcomes | 4 | BREACHED / expended / over-rated / passed branches |
+| **TOTAL** | **66** | All passing as a precondition for production deployment |
 
 ### Energy balance invariant
 
@@ -399,6 +415,49 @@ THREAT Pro is positioned as an **engineering screening tool**:
 
 ---
 
-*Version: v3.17.0  ·  Last updated: when the validation suite passes 66/66
-on this commit.  ·  Tooling: TypeScript, React Three Fiber, Three.js,
-Cloudflare Workers (Static Assets), GitHub Actions for CI.*
+## 11. Questions and interrogation
+
+This document is a starting point.  We are happy to go deeper on any
+specific item — the model, the calibration, a specific product
+result, a specific test case — in a live review session.
+
+### What we can demonstrate live
+
+- Re-run any of the 27 product validation cases with parameters of
+  your choosing and walk through the resulting force-time curve.
+- Show the full energy-balance breakdown for any scenario (initial
+  KE → barrier + crumple + drag + friction → residual).
+- Apply a custom threat (mass, velocity, geometry) against any
+  catalog product or a user-defined one and discuss the predicted
+  outcome.
+- Run a layered-defence scenario and trace each layer's contribution
+  to the kinetic-energy budget.
+- Replay any building-damage cascade with the proximity graph and
+  hop-decay rules visible.
+- Walk through a CFD pressure history at any probe point in a blast
+  scenario, with the F-δ → P-I → damage classification chain shown
+  step by step.
+
+### What we welcome being challenged on
+
+- The multi-post fence-sharing table and any specific product's
+  calibration.
+- The strain-rate DIF choice and the rate at which it's evaluated.
+- The mass-based absorption ratio and which products it applies to.
+- The disabled-vehicle friction transition curve.
+- Any of the limitations in §8 — including whether one of them
+  materially affects a scenario you care about.
+- The CFD Euler solver's numerical scheme, source-term handling, or
+  boundary conditions.
+
+### How to get a review session
+
+Contact via your existing relationship with Ikirugai, or through the
+contact details associated with the demo invitation.  We can
+typically schedule a technical walk-through within a few working
+days.
+
+---
+
+*Version: v3.17.0.  Last updated when the validation suite passed 66/66
+on the most recent production commit.*
