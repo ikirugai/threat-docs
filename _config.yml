@@ -1,0 +1,15 @@
+# GitHub Pages Jekyll configuration for the THREAT Pro methodology
+# document.  Cayman is a clean, technical-looking theme that renders
+# tables and code blocks well — appropriate for a specialist-facing
+# reference page.
+
+title: THREAT Pro — Methodology
+description: Model, assumptions, and validation results for the THREAT Pro HVM + blast safety simulator.
+theme: jekyll-theme-cayman
+show_downloads: false
+
+# Map / so the canonical URL is the index page rather than a path
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
