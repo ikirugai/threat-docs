@@ -1,6 +1,6 @@
 # THREAT Pro: methodology
 
-> **Status, 7 October 2026: version 3.31.** This page describes the
+> **Status, 7 October 2026: version 3.32.** This page describes the
 > engineering basis of THREAT Pro: what is modelled, which standards and
 > published methods it follows, what is calibrated, how it is validated
 > and what it does not do. It supersedes the version 3.17 page, which
@@ -89,12 +89,12 @@ Every value the software uses is classified as one of:
 ### Validation
 
 - **Sources.** Product ratings were checked on 7 October 2026 against manufacturer datasheets and the NPSA impact-rated product listings; each rating in the catalogue carries its source.
-- **Calibration.** Every catalogue product reproduces its calibration test: published distances within about 0.4 m, or the published band.
-- **Validation.** Products with a second published test predict it from the first, against an acceptance band fixed before the runs: the published distance ± (0.5 m + 25 %), or the ASTM penetration band.
-  - **Independent second tests: 2 of 6 inside.** The model does not yet scale with speed for bollards. Published speed pairs show penetration rising smoothly with impact energy. The model is closer to a threshold: the vehicle is stopped below the calibrated capacity and passes far beyond it above. The cause is the vehicle front model, which treats a narrow post like a full-width wall; a contact-dependent front model is the next work package.
-  - **Same test certified to a second standard: 2 of 2 inside.** These check the penetration measurement only.
-- **Consequence.** Results at or below a product's rated vehicle and speed follow its published test. Results above them, and comparisons between products at conditions none of them was tested at, are indicative only.
+- **Calibration.** Every catalogue product reproduces its calibration test: published distances within about 0.3 m, or the published band.
+- **Validation against second tests.** Products with a second published test predict it from the first, against an acceptance band fixed before the runs: the published distance ± (0.5 m + 25 %), or the ASTM penetration band. Independent second tests: 2 of 6 inside.
+- **NPSA catalogue.** All 550 impact-rated entries of the NPSA catalogue were collected as a validation dataset. The bollards tested more than once give 16 predictions; 8 fall inside the band. Repeat tests of one nominal condition scatter by up to three times between configurations, which limits what any model can reproduce. A vehicle front model that depends on contact width was fitted to these tests with cross-validation; it did not improve out-of-sample predictions and is not used. A rule that a bollard failing under the vehicle wrecks its front axle lowered the prediction error and is used.
+- **What this means.** Published tests show bollard penetration rising smoothly with impact energy; the model is closer to a threshold (the vehicle stopped below the calibrated capacity, far beyond it above). Results at or below a product's rated vehicle and speed follow its published test. Results above them, and comparisons between products at conditions none of them was tested at, are indicative only.
 - **Sensitivity.** The effect of the vehicle front stiffness and depth, post-impact friction and the numerical time step on every calibrated product is part of the reviewer pack. The time step changes results by about 0.1 m at most.
+- **Review.** The code has been checked against this methodology and the cited standards by automated review, and the defects found were corrected. Review by qualified HVM and blast engineers is still open.
 
 ---
 

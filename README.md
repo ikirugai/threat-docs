@@ -6,7 +6,7 @@ browser-based HVM and blast assessment tool by ikirugai ltd.
 Read it at **https://ikirugai.github.io/threat-docs/** (or
 [`index.md`](./index.md) on GitHub).
 
-**Status, 7 October 2026:** version 3.31. The page describes the
+**Status, 7 October 2026:** version 3.32. The page describes the
 engineering basis, the standards followed, what is calibrated, the
 validation results and the limitations. It replaces the withdrawn v3.17
 reference. The full as-built technical reference (every constant and its
