@@ -1,7 +1,7 @@
 # GitHub Pages (Jekyll) configuration for the THREAT Pro methodology page.
 
 title: "THREAT Pro: methodology"
-description: Status and methodology of the THREAT Pro HVM and blast screening tool (under revision).
+description: Engineering basis, validation and limitations of the THREAT Pro HVM and blast assessment tool.
 theme: jekyll-theme-cayman
 show_downloads: false
 
