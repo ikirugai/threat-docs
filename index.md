@@ -1,6 +1,6 @@
 # THREAT Pro: methodology
 
-> **Status, 7 October 2026: version 3.32.** This page describes the
+> **Status, 7 October 2026: version 3.33.** This page describes the
 > engineering basis of THREAT Pro: what is modelled, which standards and
 > published methods it follows, what is calibrated, how it is validated
 > and what it does not do. It supersedes the version 3.17 page, which
@@ -124,6 +124,54 @@ Every value the software uses is classified as one of:
 - **What it does.** An optional three-dimensional Euler solver shows how the blast wave travels round buildings: reflection, shielding and channelling.
 - **Benchmark.** At the grid sizes a browser can run, its peak pressures fall well below the Kingery-Bulmash values in an open-field benchmark.
 - **Qualitative only.** CFD output is shown for comparison. Damage and the level of protection always come from the empirical method above.
+
+---
+
+## Checking a result: the minimum evidence
+
+Four checks show that the process works as described. Each can be
+repeated in the app or against the published sources without access to
+the code.
+
+1. **Ratings are traceable.** Every catalogue product, in the app's
+   mitigation panel and in the report, lists each published crash test
+   rating with a link to where it is published (manufacturer datasheet or
+   NPSA listing). Check the designation against the source.
+2. **A product reproduces its own crash test.** Place a single catalogue
+   product, choose its test vehicle from the standard's library and strike
+   it square-on at the test speed. The reported penetration matches the
+   published value to within about 0.3 m (or falls in the published ASTM
+   band). Two examples:
+
+   | Product | Published test | Published | THREAT Pro |
+   |---|---|---|---|
+   | Avon Scimitar 7550 | PAS 68 N3 7.5 t at 80 km/h | 10.6 m | 10.6 m |
+   | CLD Rampart 50 | IWA 14-1 N3C 7.2 t at 80 km/h | 8.5 m | 8.5 m |
+
+   This shows calibration, not prediction. The prediction evidence is the
+   second-test and NPSA results under Validation above, with their pass
+   rates.
+3. **Energy balances.** Every HVM result reports the kinetic energy at
+   first contact and where it went (barriers and building, vehicle crush,
+   friction and drag, residual). The channels are computed independently;
+   a run whose balance does not close is flagged.
+4. **Blast parameters match the published curves.** For a 1000 kg TNT
+   surface burst at 50 m (scaled distance 5.0 m/kg<sup>1/3</sup>), THREAT
+   Pro gives:
+
+   | Parameter | THREAT Pro |
+   |---|---|
+   | Peak incident overpressure | 43.2 kPa |
+   | Peak normal reflected pressure | 100.7 kPa |
+   | Incident impulse | 592 kPa·ms |
+   | Arrival time | 82 ms |
+   | Positive phase duration | 38 ms |
+
+   Read the same values from the Kingery-Bulmash curves in UFC 3-340-02
+   (Figure 2-15) or compute them with Swisdak (1994). They agree within
+   the reading accuracy of the figure.
+
+Every report lists the standards it follows and links to this page.
 
 ---
 
