@@ -64,7 +64,7 @@ Every value the software uses is classified as one of:
   - front crush;
   - ground friction that rises as the vehicle is wrecked;
   - air drag.
-- **Energy check.** Each energy channel is computed independently, and the energy balance is checked in every run.
+- **Energy check.** Each energy channel is the work its own force does on the vehicle, and every run checks that they add up to the energy lost.
 
 ### Mitigation products and building elements
 
@@ -151,10 +151,13 @@ the code.
    This shows calibration, not prediction. The prediction evidence is the
    second-test and NPSA results under Validation above, with their pass
    rates.
-3. **Energy balances.** Every HVM result reports the kinetic energy at
-   first contact and where it went (barriers and building, vehicle crush,
-   friction and drag, residual). The channels are computed independently;
-   a run whose balance does not close is flagged.
+3. **Energy is accounted for.** Every HVM result reports the kinetic
+   energy at first contact and where it went (barriers and building,
+   vehicle crush, friction and drag, residual). Each share is the work
+   its own force did on the vehicle, so the shares add up to the energy
+   lost; a result where they do not is flagged. This checks the
+   bookkeeping and the numerical integration, not the contact model
+   itself, which check 2 and the validation results test.
 4. **Blast parameters match the published curves.** For a 1000 kg TNT
    surface burst at 50 m (scaled distance 5.0 m/kg<sup>1/3</sup>), THREAT
    Pro gives:
