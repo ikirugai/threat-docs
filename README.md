@@ -1,31 +1,18 @@
-# THREAT Pro — Methodology
+# THREAT Pro: methodology
 
-This repo hosts the **public-facing methodology document** for THREAT Pro,
-the browser-based HVM and blast safety simulator at
+This repository hosts the public methodology page for THREAT Pro, the
+browser-based HVM and blast screening tool at
 [threat.ikirugai.com](https://threat.ikirugai.com/).
 
-## Read it
+Read it at **https://ikirugai.github.io/threat-docs/** (or
+[`index.md`](./index.md) on GitHub).
 
-📖 **https://ikirugai.github.io/threat-docs/**
+**Status, 7 October 2026:** under revision. The earlier reference
+(v3.17) has been withdrawn after an audit found it did not match the
+software. The page currently carries a short status note; the full
+technical reference and validation will be published here when the
+models have been aligned with PAS 68, IWA 14-1, ASTM F2656 and
+UFC 3-340-02 and reviewed.
 
-(Or [`index.md`](./index.md) directly on GitHub.)
-
-## What's in here
-
-A single-page reference covering:
-
-- The physics and numerical methods behind every simulation mode
-- Calibration approach against published manufacturer test data
-- **Validation results: all 27 catalog products vs published rated penetration**
-- Known limitations and engineering-judgement flags
-- Test coverage and how to reproduce the validation suite
-
-Designed for HVM specialists, blast specialists, and structural engineers
-who want a one-stop technical overview before a demo or review.
-
-## Updates
-
-This document is generated alongside each tagged release of the main
-THREAT Pro repo.  The source is at
-[`METHODOLOGY.md`](https://github.com/ikirugai/threat/blob/main/METHODOLOGY.md)
-in the (private) main repo.
+The source is `METHODOLOGY.md` in the private main repository; this page
+is updated from it at tagged releases.
