@@ -3,7 +3,7 @@ layout: default
 title: Methodology
 description: Engineering basis, validation and limitations of T.H.R.E.A.T., the HVM and blast assessment tool by ikirugai.
 lede: What T.H.R.E.A.T. models, which standards and published methods it follows, what is calibrated, how it is validated, and what it does not do.
-status: "Version 3.40, 19 October 2026. The engineering model is unchanged since version 3.36."
+status: "Version 3.41, 19 October 2026: how imported building models are placed and struck, revised."
 ---
 
 > This page describes the engineering basis of T.H.R.E.A.T. (Tactical
@@ -91,6 +91,8 @@ Every value the software uses is classified as one of:
   - glazing breaks at a few kilonewtons.
 
   The load is applied at the impact height of EN 1991-1-7, with characteristic strengths and no partial factors or strain-rate increase. Where the model does not say, the assumptions are on the weak side, and an element whose material the model does not name is shown as "material assumed". With an IFC model the real sections and materials are used; with approximate massing the result answers whether mitigation keeps the vehicle off the building.
+
+  An imported model stands on its lowest element that is not a foundation, so footings and foundation walls stay below ground. A vehicle meets each element where it can reach it, up to the height of the tallest test vehicle, so an inclined member is struck at its lower end. A door resists with its leaf. When a load-bearing element is destroyed, what rests on it loses support; nothing below it or beside it does.
 - **Penetration** is measured as each standard measures it:
 
   | Standard | Measured from | To |
