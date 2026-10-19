@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="512" height="512">
+  <title>T.H.R.E.A.T. by ikirugai</title>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#24516e" stroke="#5fb4a2" stroke-opacity="0.55" stroke-width="1"/>
+  <path d="M16 5 L24.6 8.2 V15 C24.6 20.4 21 24.4 16 26.6 C11 24.4 7.4 20.4 7.4 15 V8.2 Z" fill="none" stroke="#fafafa" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="16" cy="15.6" r="3.3" fill="none" stroke="#83c4b8" stroke-width="1.6"/>
+  <path d="M16 9.9 V11.4 M16 19.8 V21.3 M10.3 15.6 H11.8 M20.2 15.6 H21.7" stroke="#fafafa" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="16" cy="15.6" r="1" fill="#83c4b8"/>
+</svg>

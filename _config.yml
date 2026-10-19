@@ -1,11 +1,12 @@
-# GitHub Pages (Jekyll) configuration for the THREAT Pro methodology page.
+# GitHub Pages (Jekyll) configuration for the T.H.R.E.A.T. methodology page.
+# Layout and styles are the tool's own identity (_layouts/default.html, assets/css/site.css).
 
-title: "THREAT Pro: methodology"
-description: Engineering basis, validation and limitations of the THREAT Pro HVM and blast assessment tool.
-theme: jekyll-theme-cayman
+title: "T.H.R.E.A.T. methodology"
+description: Engineering basis, validation and limitations of T.H.R.E.A.T., the HVM and blast assessment tool by ikirugai.
 show_downloads: false
 
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+  toc_levels: "2"

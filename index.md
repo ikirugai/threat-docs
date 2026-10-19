@@ -1,16 +1,23 @@
-# THREAT Pro: methodology
+---
+layout: default
+title: Methodology
+description: Engineering basis, validation and limitations of T.H.R.E.A.T., the HVM and blast assessment tool by ikirugai.
+lede: What T.H.R.E.A.T. models, which standards and published methods it follows, what is calibrated, how it is validated, and what it does not do.
+status: "Version 3.40, 19 October 2026. The engineering model is unchanged since version 3.36."
+---
 
-> **Status, 8 October 2026: version 3.36.** This page describes the
-> engineering basis of THREAT Pro: what is modelled, which standards and
-> published methods it follows, what is calibrated, how it is validated
-> and what it does not do. It supersedes the version 3.17 page, which
-> was withdrawn. The full as-built technical reference, with every
-> constant, its source and the complete validation data, is available to
-> independent reviewers on request from ikirugai.
+> This page describes the engineering basis of T.H.R.E.A.T. (Tactical
+> Hazard Risk Evaluation and Assessment Toolkit). It supersedes the
+> version 3.17 page, which was withdrawn. The full as-built technical
+> reference, with every constant, its source and the complete validation
+> data, is available to independent reviewers on request from ikirugai.
 
-## What THREAT Pro is
+* Contents
+{:toc}
 
-THREAT Pro is a browser-based assessment tool for hostile vehicle
+## What T.H.R.E.A.T. is
+
+T.H.R.E.A.T. is a browser-based assessment tool for hostile vehicle
 mitigation (HVM) and blast at a site. It is for comparing layouts and
 mitigation options and for checking whether mitigation keeps a threat
 vehicle off a building. It does not replace product crash testing,
@@ -160,7 +167,7 @@ the code.
    published value to within about 0.3 m (or falls in the published ASTM
    band). Two examples:
 
-   | Product | Published test | Published | THREAT Pro |
+   | Product | Published test | Published | T.H.R.E.A.T. |
    |---|---|---|---|
    | Avon Scimitar 7550 | PAS 68 N3 7.5 t at 80 km/h | 10.6 m | 10.5 m |
    | CLD Rampart 50 | IWA 14-1 N3C 7.2 t at 80 km/h | 8.5 m | 8.3 m |
@@ -176,10 +183,9 @@ the code.
    bookkeeping and the numerical integration, not the contact model
    itself, which check 2 and the validation results test.
 4. **Blast parameters match the published curves.** For a 1000 kg TNT
-   surface burst at 50 m (scaled distance 5.0 m/kg<sup>1/3</sup>), THREAT
-   Pro gives:
+   surface burst at 50 m (scaled distance 5.0 m/kg<sup>1/3</sup>), T.H.R.E.A.T. gives:
 
-   | Parameter | THREAT Pro |
+   | Parameter | T.H.R.E.A.T. |
    |---|---|
    | Peak incident overpressure | 43.2 kPa |
    | Peak normal reflected pressure | 100.7 kPa |
@@ -223,6 +229,6 @@ Independent review is welcome. Reviewers can have the full technical
 reference and the complete calibration and validation results. Contact
 ikirugai ltd, patrick@ikirugai.com.
 
-THREAT Pro is proprietary software of ikirugai ltd. This page describes
+T.H.R.E.A.T. is proprietary software of ikirugai ltd. This page describes
 its engineering basis; it is not a specification or a licence to
 reproduce it.

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }} · T.H.R.E.A.T. by ikirugai</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="theme-color" content="#0a1d2c">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/brand/threat-mark.svg' | relative_url }}">
+  <link rel="preload" href="{{ '/assets/fonts/inter-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ '/assets/fonts/spacegrotesk-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="lockup" href="{{ '/' | relative_url }}" aria-label="T.H.R.E.A.T. by ikirugai, methodology">
+        <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="31" height="31" rx="6.5" fill="#24516e" stroke="#5fb4a2" stroke-opacity="0.55" stroke-width="1"/>
+          <path d="M16 5 L24.6 8.2 V15 C24.6 20.4 21 24.4 16 26.6 C11 24.4 7.4 20.4 7.4 15 V8.2 Z" fill="none" stroke="#fafafa" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="16" cy="15.6" r="3.3" fill="none" stroke="#83c4b8" stroke-width="1.6"/>
+          <path d="M16 9.9 V11.4 M16 19.8 V21.3 M10.3 15.6 H11.8 M20.2 15.6 H21.7" stroke="#fafafa" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16" cy="15.6" r="1" fill="#83c4b8"/>
+        </svg>
+        <span class="lockup-name">T.H.R.E.A.T.</span>
+        <span class="lockup-by">by ikirug<span class="sage">ai</span></span>
+      </a>
+      <span class="bar-section">Methodology</span>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Engineering basis · Public summary</p>
+      <h1>{{ page.title }}</h1>
+      {% if page.lede %}<p class="lede">{{ page.lede }}</p>{% endif %}
+      {% if page.status %}<p class="status"><span class="dot" aria-hidden="true"></span>{{ page.status }}</p>{% endif %}
+    </div>
+  </div>
+
+  <div class="layout">
+    <main class="prose">
+      {{ content }}
+    </main>
+  </div>
+
+  <footer class="foot">
+    <div class="foot-inner">
+      <span>T.H.R.E.A.T. by ikirugai · Tactical Hazard Risk Evaluation and Assessment Toolkit</span>
+      <span>© ikirugai ltd. Fonts: Inter, Space Grotesk and JetBrains Mono under the <a href="{{ '/assets/fonts/OFL.txt' | relative_url }}">SIL Open Font Licence</a>.</span>
+    </div>
+  </footer>
+</body>
+</html>
